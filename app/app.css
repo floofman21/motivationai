@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ActionBar {
+    background-color: #65adf1;
+    color: white;
+}
+
+.btn {
+    border-radius: 5;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+}
