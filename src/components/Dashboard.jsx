@@ -3,7 +3,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useSpring, animated } from 'react-spring';
 import { db } from '../firebase';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { generateMotivationalMessage } from '../services/huggingFaceService';
+import { generateMotivationalMessage } from '../services/openaiService.js';
 import {getKanyeQuote} from "../services/kanyeRest.js";
 
 const personalities = [
