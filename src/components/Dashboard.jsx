@@ -4,12 +4,14 @@ import { useSpring, animated } from 'react-spring';
 import { db } from '../firebase';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { generateMotivationalMessage } from '../services/huggingFaceService';
+import {getKanyeQuote} from "../services/kanyeRest.js";
 
 const personalities = [
   { id: 1, name: "Optimistic Ollie", theme: "positivity and hope" },
   { id: 2, name: "Resilient Rita", theme: "overcoming challenges" },
   { id: 3, name: "Mindful Max", theme: "present-moment awareness" },
-  { id: 4, name: "Energetic Ellie", theme: "enthusiasm and action" }
+  { id: 4, name: "Energetic Ellie", theme: "enthusiasm and action" },
+  { id: 5, name: "Kanye West", theme: ""}
 ];
 
 export default function Dashboard() {
@@ -60,7 +62,13 @@ export default function Dashboard() {
   };
 
   const handleGetMotivation = async () => {
-    if (selectedPersonality) {
+    if (selectedPersonality.id === 5) {
+      const message = await getKanyeQuote();
+      setMotivationalMessage(message)
+      setLoading(false)
+    }
+
+    if (selectedPersonality.id !== 5) {
       setLoading(true);
       try {
         console.log("Getting motivation for:", selectedPersonality);
